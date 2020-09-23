@@ -1,25 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import { Navbar, TodoList, Login } from "./components";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import GlobalStyle from "./globalStyles";
 
 function App() {
+  const [login, setLogin] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <GlobalStyle />
+      <Navbar login={login} setLogin={setLogin} />
+      <Switch>
+        <Route
+          path="/"
+          exact
+          render={(props) => <TodoList {...props} setLogin={setLogin} />}
+        />
+        <Route path="/login" exact component={Login} />
+        {/* <Route path="/about" exact component={About} /> */}
+        {/* <Route path="/login" exact component={SignUp} /> */}
+      </Switch>
+    </Router>
   );
 }
 
