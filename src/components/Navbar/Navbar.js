@@ -10,13 +10,18 @@ import {
   NavLinks,
   LogoText,
 } from "./Navbar.elements";
-import { FaBars, FaGlasses, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
 
 const Navbar = (props) => {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
+
+  const logOut = () => {
+    props.setLogin(false);
+    localStorage.removeItem("x-auth-token");
+  };
 
   return (
     <>
@@ -25,7 +30,7 @@ const Navbar = (props) => {
           <NavBarContainer>
             <NavLogo to="/" onClick={closeMobileMenu}>
               <NavIcon />
-              <LogoText>evernot.dev</LogoText>
+              <LogoText>evernot.io</LogoText>
             </NavLogo>
 
             <MobileIcon onClick={handleClick}>
@@ -43,7 +48,7 @@ const Navbar = (props) => {
                 </NavItem>
 
                 <NavItem>
-                  <NavLinks to="/login" onClick={props.setLogin(false)}>
+                  <NavLinks to="/login" onClick={logOut}>
                     Log out
                   </NavLinks>
                 </NavItem>

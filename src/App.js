@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Navbar, TodoList, Login } from "./components";
+import { Navbar, TodoList, Login, Footer } from "./components";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import GlobalStyle from "./globalStyles";
 
@@ -20,6 +20,7 @@ function App() {
         {/* <Route path="/about" exact component={About} /> */}
         {/* <Route path="/login" exact component={SignUp} /> */}
       </Switch>
+      <Footer />
     </Router>
   );
 }

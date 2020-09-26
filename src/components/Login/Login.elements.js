@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const FormContainer = styled.div`
   display: flex;
   margin: 100px auto;
-  max-width: 1000px;
+  max-width: 850px;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
   position: relative;
   border-radius: 10px;
@@ -15,6 +15,7 @@ export const FormContainer = styled.div`
     grid-template-columns: none;
     margin: 0 auto;
     border-radius: 0px;
+    height: 1000px;
   }
 `;
 
@@ -32,6 +33,7 @@ export const FormSignUp = styled.form`
 `;
 
 export const FormContentLeft = styled.div`
+  height: 600px;
   background: linear-gradient(
     90deg,
     rgb(39, 176, 255) 0%,
@@ -41,8 +43,8 @@ export const FormContentLeft = styled.div`
   position: relative;
 
   @media screen and (max-width: 958px) {
-    height: 500px;
     border-radius: 0px;
+    height: 400px;
   }
 `;
 
@@ -52,7 +54,7 @@ export const FormContentRight = styled.div`
   background: linear-gradient(90deg, rgb(40, 40, 40) 0%, rgb(17, 17, 17) 100%);
 
   @media screen and (max-width: 958px) {
-    height: 500px;
+    height: 625px;
     border-radius: 0px;
   }
 `;
@@ -102,4 +104,9 @@ export const FormInputBtn = styled.button`
   border: none;
   color: #fff;
   font-size: 1rem;
+`;
+
+export const ErrorMsg = styled.p`
+  color: red;
+  margin: 10px 0px;
 `;
