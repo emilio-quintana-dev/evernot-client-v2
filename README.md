@@ -1,4 +1,4 @@
-I created this simple web-app as a way for me to learn node, express, mongoDB and practice my react, html, css and styled components skills.
+I created this simple web-app as a way for me to learn node, express, mongoDB and practice my react, html, css and styled components skills. Feel free to check out the [backend](https://github.com/emilio-quintana-dev/evernot-api-v2) as well.
 
 # User Stories
 
@@ -11,13 +11,13 @@ Users can:
 # Ui Wireframes
 ![Home screen wireframe](https://github.com/emilio-quintana-dev/evernot-client-v2/blob/master/public/images/home-screen-wireframe.png)
 
-# Db Diagram
-![Db Diagram](https://github.com/emilio-quintana-dev/evernot-client-v2/blob/master/public/images/db-diagram.png)
+# Features
+- Save encrypted user data client-side using jwt and bcrypt.
+- Enabled client side rendering by using React router.
 
 # Tech Stack
-- Html, css and react for the front-end.
-- Node, express and MongoDB for the back-end.
+- Html, css, styled-components and react.
 
 # Libraries/packages used:
-- Axios, react-router-dom, react-icons and styled-components for the front-end.
-- Bcrypt, config, cors, express, joi, jsonwebtoken, lodash and mongoose for the back-end.
+- Axios, react-router-dom, react-icons and styled-components.
+
