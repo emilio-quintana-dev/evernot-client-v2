@@ -1,4 +1,4 @@
-I created this simple web-app as a way for me to learn node, express, mongoDB and practice my react, html, css and styled components skills. Feel free to check out my [backend](https://github.com/emilio-quintana-dev/evernot-api-v2) as well.
+I created this simple web-app as a way for me to learn node, express, mongoDB and practice my react, html, css and styled components skills. Feel free to check out the [backend](https://github.com/emilio-quintana-dev/evernot-api-v2) as well.
 
 # User Stories
 
