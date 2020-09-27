@@ -11,6 +11,10 @@ Users can:
 # Ui Wireframes
 ![Home screen wireframe](https://github.com/emilio-quintana-dev/evernot-client-v2/blob/master/public/images/home-screen-wireframe.png)
 
+# Features
+- Save encrypted user data client-side using jwt and bcrypt.
+- Enabled client side rendering by using React router.
+
 # Tech Stack
 - Html, css, styled-components and react.
 
