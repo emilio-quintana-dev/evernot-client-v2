@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { Link } from "react-router-dom";
 export const FormContainer = styled.div`
   display: flex;
   margin: 100px auto;
@@ -109,4 +109,14 @@ export const FormInputBtn = styled.button`
 export const ErrorMsg = styled.p`
   color: red;
   margin: 10px 0px;
+`;
+
+export const FormSpan = styled.span`
+  margin-top: 10px;
+  color: #fff;
+`;
+
+export const FormLink = styled(Link)`
+  text-decoration: none;
+  color: rgb(39, 176, 255);
 `;

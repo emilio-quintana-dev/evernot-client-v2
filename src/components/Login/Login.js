@@ -13,6 +13,8 @@ import {
   FormInputBtn,
   FormImg,
   ErrorMsg,
+  FormSpan,
+  FormLink,
 } from "./Login.elements";
 
 const Login = () => {
@@ -76,6 +78,9 @@ const Login = () => {
           </FormInputs>
           {errors !== "" ? <ErrorMsg>{errors}</ErrorMsg> : null}
           <FormInputBtn>Log in</FormInputBtn>
+          <FormSpan>
+            Don't have an account ?<FormLink to="/signup"> Sign up</FormLink>
+          </FormSpan>
         </FormSignUp>
       </FormContentRight>
     </FormContainer>

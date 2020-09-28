@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Navbar, TodoList, Login, Footer } from "./components";
+import { Navbar, TodoList, Login, SignUp, Footer } from "./components";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import GlobalStyle from "./globalStyles";
 
@@ -17,8 +17,8 @@ function App() {
           render={(props) => <TodoList {...props} setLogin={setLogin} />}
         />
         <Route path="/login" exact component={Login} />
+        <Route path="/signup" exact component={SignUp} />
         {/* <Route path="/about" exact component={About} /> */}
-        {/* <Route path="/login" exact component={SignUp} /> */}
       </Switch>
       <Footer />
     </Router>
