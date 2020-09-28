@@ -11,6 +11,8 @@ Users can:
 # Ui Wireframes
 ![Home screen wireframe](https://github.com/emilio-quintana-dev/evernot-client-v2/blob/master/public/images/home-screen-wireframe.png)
 ![Todos screen wireframe](https://github.com/emilio-quintana-dev/evernot-client-v2/blob/master/public/images/todos-screen-wireframe.png)
+![Signup screen wireframe](https://github.com/emilio-quintana-dev/evernot-client-v2/blob/master/public/images/signup-screen-wireframe.png)
+![About screen wireframe](https://github.com/emilio-quintana-dev/evernot-client-v2/blob/master/public/images/about-screen-wireframe.png)
 
 # Features
 - Save encrypted user data client-side using jwt and bcrypt.
