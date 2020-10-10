@@ -17,7 +17,7 @@ import {
   FormLink,
 } from "./Login.elements";
 
-const Login = () => {
+const Login = (props) => {
   const history = useHistory();
   const [values, setValues] = useState({
     email: "",
@@ -33,10 +33,12 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3000/api/v1/auth", values)
+      .post("https://thawing-citadel-58036.herokuapp.com/auth/login", values)
       .then((response) => {
-        const token = response.data;
-        localStorage.setItem("x-auth-token", token);
+        console.log(response);
+        const { token } = response.data;
+        props.setLoggedIn(true);
+        localStorage.setItem("Authorization", token);
         history.push("/");
       })
       .catch((error) => {

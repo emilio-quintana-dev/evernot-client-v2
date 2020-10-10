@@ -3,19 +3,24 @@ import { Link } from "react-router-dom";
 
 export const FormContainer = styled.div`
   display: flex;
-  display: grid;
-  max-width: 750px;
-  margin: 0 auto;
-  display: grid;
-  position: relative;
-  height: 750px;
+  flex-direction: column;
+  justify-content: start;
+  max-width: 600px;
+  min-height: 600px;
+  text-align: center;
+  margin: 50px auto;
+  border-radius: 10px;
+  padding-bottom: 32px;
 `;
 
 export const FormSignUp = styled.form`
   display: flex;
+  flex-basis: 100%;
+  width: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
 `;
 
 export const FormInputs = styled.div`

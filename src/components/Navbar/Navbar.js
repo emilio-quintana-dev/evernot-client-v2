@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   Nav,
   NavBarContainer,
@@ -19,8 +19,8 @@ const Navbar = (props) => {
   const closeMobileMenu = () => setClick(false);
 
   const logOut = () => {
-    props.setLogin(false);
-    localStorage.removeItem("x-auth-token");
+    props.setLoggedIn(false);
+    localStorage.removeItem("Authorization");
   };
 
   return (
@@ -30,14 +30,14 @@ const Navbar = (props) => {
           <NavBarContainer>
             <NavLogo to="/" onClick={closeMobileMenu}>
               <NavIcon />
-              <LogoText>evernot.io</LogoText>
+              <LogoText>Task.io</LogoText>
             </NavLogo>
 
             <MobileIcon onClick={handleClick}>
               {click ? <FaTimes /> : <FaBars />}
             </MobileIcon>
 
-            {props.login ? (
+            {props.loggedIn ? (
               <NavMenu onClick={handleClick} click={click}>
                 <NavItem>
                   <NavLinks to="/">Home</NavLinks>

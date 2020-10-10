@@ -10,21 +10,24 @@ const TodoList = (props) => {
   const [todos, setTodos] = useState([]);
 
   useEffect(() => {
-    const token = localStorage.getItem("x-auth-token");
+    const token = localStorage.getItem("Authorization");
     if (!token) {
       history.push("/login");
     } else {
-      props.setLogin(true);
+      props.setLoggedIn(true);
       fetchTodos(token);
     }
   }, []);
 
   async function fetchTodos(token) {
-    const todoObjects = await axios.get("http://localhost:3000/api/v1/todos", {
-      headers: {
-        "x-auth-token": token,
-      },
-    });
+    const todoObjects = await axios.get(
+      "https://thawing-citadel-58036.herokuapp.com/todos",
+      {
+        headers: {
+          Authorization: token,
+        },
+      }
+    );
 
     setTodos(todoObjects.data);
   }
@@ -35,14 +38,14 @@ const TodoList = (props) => {
     }
 
     axios
-      .post("http://localhost:3000/api/v1/todos", todo, {
+      .post("https://thawing-citadel-58036.herokuapp.com/todos", todo, {
         headers: {
-          "x-auth-token": localStorage.getItem("x-auth-token"),
+          Authorization: localStorage.getItem("Authorization"),
         },
       })
       .then(function (response) {
         console.log(response);
-        const todo = response.data;
+        const todo = response.data.todo;
         const newTodos = [todo, ...todos];
         setTodos(newTodos);
       })
@@ -52,13 +55,13 @@ const TodoList = (props) => {
   };
 
   const removeTodo = async (id) => {
-    axios.delete(`http://localhost:3000/api/v1/todos/${id}`, {
+    axios.delete(`https://thawing-citadel-58036.herokuapp.com/todos/${id}`, {
       headers: {
-        "x-auth-token": localStorage.getItem("x-auth-token"),
+        Authorization: localStorage.getItem("Authorization"),
       },
     });
 
-    const removedArr = [...todos].filter((todo) => todo._id !== id);
+    const removedArr = [...todos].filter((todo) => todo.id !== id);
     setTodos(removedArr);
   };
 
@@ -68,14 +71,18 @@ const TodoList = (props) => {
     }
 
     axios
-      .put(`http://localhost:3000/api/v1/todos/${id}`, newValue, {
-        headers: {
-          "x-auth-token": localStorage.getItem("x-auth-token"),
-        },
-      })
+      .put(
+        `https://thawing-citadel-58036.herokuapp.com/todos/${id}`,
+        newValue,
+        {
+          headers: {
+            Authorization: localStorage.getItem("Authorization"),
+          },
+        }
+      )
       .then(function (response) {
         setTodos((prev) =>
-          prev.map((todo) => (todo._id === id ? newValue : todo))
+          prev.map((todo) => (todo.id === id ? newValue : todo))
         );
       })
       .catch(function (error) {
@@ -84,13 +91,23 @@ const TodoList = (props) => {
   };
 
   const completeTodo = (id) => {
-    let updatedTodos = todos.map((todo) => {
-      if (todo.id === id) {
-        todo.isComplete = !todo.isComplete;
-      }
-      return todo;
-    });
-    setTodos(updatedTodos);
+    const newTodo = todos.find((todo) => todo.id === id);
+    if (newTodo) newTodo.isComplete = !newTodo.isComplete;
+
+    axios
+      .put(`https://thawing-citadel-58036.herokuapp.com/todos/${id}`, newTodo, {
+        headers: {
+          Authorization: localStorage.getItem("Authorization"),
+        },
+      })
+      .then(function (response) {
+        setTodos((prev) =>
+          prev.map((todo) => (todo.id === id ? newTodo : todo))
+        );
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
   return (

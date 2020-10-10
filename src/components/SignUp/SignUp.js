@@ -18,8 +18,10 @@ const SignUp = () => {
   const history = useHistory();
   const [values, setValues] = useState({
     name: "",
+    username: "",
     email: "",
     password: "",
+    password_confirmation: "",
   });
 
   const [errors, setErrors] = useState("");
@@ -32,10 +34,8 @@ const SignUp = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3000/api/v1/users", values)
+      .post("https://thawing-citadel-58036.herokuapp.com/users", values)
       .then((response) => {
-        const token = response.data;
-        localStorage.setItem("x-auth-token", token);
         history.push("/");
       })
       .catch(function (error) {
@@ -66,9 +66,16 @@ const SignUp = () => {
 
           <FormLabel>Email</FormLabel>
           <FormInput type="text" name="email" onChange={handleChange} />
-
+          <FormLabel>Username</FormLabel>
+          <FormInput type="text" name="username" onChange={handleChange} />
           <FormLabel>Password</FormLabel>
-          <FormInput type="text" name="password" onChange={handleChange} />
+          <FormInput type="password" name="password" onChange={handleChange} />
+          <FormLabel>Password Confirmation</FormLabel>
+          <FormInput
+            type="password"
+            name="password_confirmation"
+            onChange={handleChange}
+          />
         </FormInputs>
         {errors !== "" ? <ErrorMsg>{errors}</ErrorMsg> : null}
         <FormButton>Sign up</FormButton>

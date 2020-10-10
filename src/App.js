@@ -1,22 +1,28 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Navbar, TodoList, Login, SignUp, Footer } from "./components";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import GlobalStyle from "./globalStyles";
 
 function App() {
-  const [login, setLogin] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   return (
     <Router>
       <GlobalStyle />
-      <Navbar login={login} setLogin={setLogin} />
+      <Navbar loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
       <Switch>
         <Route
           path="/"
           exact
-          render={(props) => <TodoList {...props} setLogin={setLogin} />}
+          render={(props) => (
+            <TodoList {...props} user={loggedIn} setLoggedIn={setLoggedIn} />
+          )}
         />
-        <Route path="/login" exact component={Login} />
+        <Route
+          path="/login"
+          exact
+          render={(props) => <Login {...props} setLoggedIn={setLoggedIn} />}
+        />
         <Route path="/signup" exact component={SignUp} />
         {/* <Route path="/about" exact component={About} /> */}
       </Switch>

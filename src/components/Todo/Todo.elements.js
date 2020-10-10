@@ -4,6 +4,8 @@ export const TodoRow = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  text-decoration: ${({ isComplete }) =>
+    isComplete ? "line-through" : "none"};
   margin: 4px auto;
   color: #fff;
   background: linear-gradient(

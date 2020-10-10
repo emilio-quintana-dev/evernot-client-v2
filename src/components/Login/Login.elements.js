@@ -2,21 +2,11 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 export const FormContainer = styled.div`
   display: flex;
-  margin: 100px auto;
-  max-width: 850px;
-  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
-  position: relative;
+  flex-direction: column;
+  justify-content: start;
+  min-height: 600px;
+  text-align: center;
   border-radius: 10px;
-  height: 600px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-
-  @media screen and (max-width: 958px) {
-    grid-template-columns: none;
-    margin: 0 auto;
-    border-radius: 0px;
-    height: 1000px;
-  }
 `;
 
 export const FormSignUp = styled.form`
