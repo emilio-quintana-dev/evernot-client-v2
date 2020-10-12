@@ -3,14 +3,15 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 
 import {
-  FormContainer,
-  FormSignUp,
-  FormInputs,
-  FormLabel,
-  FormInput,
-  FormButton,
+  Title,
+  Container,
+  Form,
+  InputWrapper,
+  Label,
+  Input,
+  Button,
   ErrorMsg,
-  FormLogIn,
+  Span,
   FormLink,
 } from "./SignUp.elements";
 
@@ -39,7 +40,9 @@ const SignUp = () => {
         history.push("/");
       })
       .catch(function (error) {
-        if (error.response) setErrors(`${error.response.data}`);
+        if (error.response) {
+          setErrors(error.response.data.errors[0]);
+        }
       });
   };
 
@@ -52,38 +55,38 @@ const SignUp = () => {
   };
 
   return (
-    <FormContainer>
-      <FormSignUp onSubmit={handleSubmit}>
-        <h1>Sign Up</h1>
-        <FormInputs>
-          <FormLabel>Name</FormLabel>
-          <FormInput
+    <Container>
+      <Form onSubmit={handleSubmit}>
+        <Title>Sign Up</Title>
+        <InputWrapper>
+          <Label>Name</Label>
+          <Input
             type="text"
             name="name"
             onChange={handleChange}
             ref={inputRef}
           />
 
-          <FormLabel>Email</FormLabel>
-          <FormInput type="text" name="email" onChange={handleChange} />
-          <FormLabel>Username</FormLabel>
-          <FormInput type="text" name="username" onChange={handleChange} />
-          <FormLabel>Password</FormLabel>
-          <FormInput type="password" name="password" onChange={handleChange} />
-          <FormLabel>Password Confirmation</FormLabel>
-          <FormInput
+          <Label>Email</Label>
+          <Input type="text" name="email" onChange={handleChange} />
+          <Label>Username</Label>
+          <Input type="text" name="username" onChange={handleChange} />
+          <Label>Password</Label>
+          <Input type="password" name="password" onChange={handleChange} />
+          <Label>Password Confirmation</Label>
+          <Input
             type="password"
             name="password_confirmation"
             onChange={handleChange}
           />
-        </FormInputs>
+        </InputWrapper>
         {errors !== "" ? <ErrorMsg>{errors}</ErrorMsg> : null}
-        <FormButton>Sign up</FormButton>
-        <FormLogIn>
+        <Button>Sign up</Button>
+        <Span>
           Or <FormLink to="/login">log in</FormLink>
-        </FormLogIn>
-      </FormSignUp>
-    </FormContainer>
+        </Span>
+      </Form>
+    </Container>
   );
 };
 

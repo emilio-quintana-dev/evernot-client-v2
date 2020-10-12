@@ -1,99 +1,66 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-export const FormContainer = styled.div`
+
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: start;
-  min-height: 600px;
   text-align: center;
-  border-radius: 10px;
+  max-width: 600px;
+  min-height: 550px;
+  margin: 50px auto;
 `;
 
-export const FormSignUp = styled.form`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%;
-  height: 100%;
+export const Form = styled.form`
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 800px;
   justify-content: center;
   align-items: center;
 `;
 
-export const FormContentLeft = styled.div`
-  height: 600px;
-  background: linear-gradient(
-    90deg,
-    rgb(39, 176, 255) 0%,
-    rgb(0, 232, 236) 100%
-  );
-  border-radius: 10px 0 0 10px;
-  position: relative;
-
-  @media screen and (max-width: 958px) {
-    border-radius: 0px;
-    height: 400px;
-  }
-`;
-
-export const FormContentRight = styled.div`
-  border-radius: 0 10px 10px 0;
-  position: relative;
-  background: linear-gradient(90deg, rgb(40, 40, 40) 0%, rgb(17, 17, 17) 100%);
-
-  @media screen and (max-width: 958px) {
-    height: 625px;
-    border-radius: 0px;
-  }
-`;
-
-export const FormInputs = styled.div`
+export const InputWrapper = styled.div`
+  text-align: left;
   margin-bottom: 0.5rem;
   width: 80%;
 `;
 
-export const FormInput = styled.input`
+export const Input = styled.input`
   display: block;
   padding-left: 10px;
   outline: none;
   border-radius: 2px;
   height: 40px;
   width: 100%;
-  border: none;
+  border: 2.5px solid gray;
+  border-radius: 5px;
+  margin-bottom: 5px;
+
+  &:focus {
+    transition: all 0.1s ease-out;
+    border: 3px solid;
+    border-color: #ff1e00;
+  }
 `;
 
-export const FormLabel = styled.label`
+export const Label = styled.label`
   display: inline-block;
-  font-size: 0.8rem;
+  font-size: 1rem;
   margin-bottom: 6px;
-  color: #fff;
+  color: grey;
 `;
 
-export const FormImg = styled.img`
+export const Button = styled.button`
+  cursor: pointer;
   width: 80%;
-  height: 80%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-`;
-
-export const FormInputBtn = styled.button`
-  width: 80%;
-  height: 50px;
-  margin-top: 10px;
+  height: 40px;
   border-radius: 2px;
-  background: linear-gradient(
-    90deg,
-    rgb(39, 176, 255) 0%,
-    rgb(0, 232, 236) 100%
-  );
+  background: #ff1e00;
   outline: none;
   border: none;
+  border-radius: 5px;
   color: #fff;
-  font-size: 1rem;
+  font-size: 1.1rem;
 `;
 
 export const ErrorMsg = styled.p`
@@ -101,12 +68,19 @@ export const ErrorMsg = styled.p`
   margin: 10px 0px;
 `;
 
-export const FormSpan = styled.span`
-  margin-top: 10px;
-  color: #fff;
+export const Span = styled.span`
+  font-size: 1rem;
+  margin-top: 20px;
+  color: black;
 `;
 
 export const FormLink = styled(Link)`
   text-decoration: none;
-  color: rgb(39, 176, 255);
+  color: #ff1e00;
+`;
+
+export const Title = styled.h1`
+  color: black;
+  font-size: 30px;
+  margin-bottom: 10px;
 `;

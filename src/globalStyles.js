@@ -5,17 +5,11 @@ const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
         margin: 0;
         padding: 0;
-        font-family: 'Source Sans Pro' !important;
+        font-family: 'Poppins', sans-serif;
     }
 
     body {
-      background: rgba(21, 30, 41, 1) 0%;
-    }
-
-    h1 {
-      margin: 15px 0;
-      color: #fff;
-      font-size: 35px;
+      background: #fafafa;
     }
 `;
 

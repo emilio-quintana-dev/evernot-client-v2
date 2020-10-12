@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { colors } from "../../utils/colors";
 
 export const AppWrapper = styled.div`
   display: flex;
@@ -10,4 +11,10 @@ export const AppWrapper = styled.div`
   margin: 50px auto;
   border-radius: 10px;
   padding-bottom: 32px;
+`;
+
+export const Title = styled.h1`
+  color: ${colors.text};
+  font-size: 30px;
+  margin-bottom: 10px;
 `;

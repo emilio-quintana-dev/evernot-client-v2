@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import { Container } from "../../globalStyles";
 import { AiOutlineCodepen } from "react-icons/ai";
-
 import { Link } from "react-router-dom";
+import { colors } from "../../utils/colors";
 
 export const Nav = styled.nav`
-  background: #192734;
+  background: ${colors.background};
   height: 80px;
   display: flex;
   justify-content: center;
@@ -24,7 +24,6 @@ export const NavBarContainer = styled(Container)`
 `;
 
 export const NavLogo = styled(Link)`
-  color: #fff;
   justify-self: flex-start;
   cursor: pointer;
   text-decoration: none;
@@ -40,6 +39,7 @@ export const NavIcon = styled(AiOutlineCodepen)`
 
 export const LogoText = styled.h1`
   font-size: 1.5rem;
+  color: ${colors.text};
 `;
 
 export const MobileIcon = styled.div`
@@ -72,7 +72,7 @@ export const NavMenu = styled.ul`
     left: ${({ click }) => (click ? 0 : "-100%")};
     opacity: 1;
     transition: all 0.5s ease;
-    background-color: rgba(21, 30, 41, 1);
+    background-color: ${colors.background};
   }
 `;
 
@@ -81,7 +81,7 @@ export const NavItem = styled.li`
   border-bottom: 2px solid transparent;
 
   &:hover {
-    border-bottom: 2px solid #4b69f7;
+    border-bottom: 2px solid ${colors.primary};
   }
 
   @media screen and (max-width: 960px) {
@@ -99,17 +99,17 @@ export const NavLinks = styled(Link)`
   text-decoration: none;
   padding: 0.5rem 1rem;
   height: 100%;
-  color: #fff;
+  color: black;
 
   @media screen and (max-width: 960px) {
-    color: #fff;
+    color: black;
     text-align: center;
     padding: 2rem;
     width: 100%;
     display: table;
 
     &:hover {
-      color: #2f004f;
+      color: ${colors.primary};
       transition: all 0.3s ease;
     }
   }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import TodoForm from "../TodoForm/TodoForm";
 import Todo from "../Todo/Todo";
-import { AppWrapper } from "./TodoList.elements";
+import { AppWrapper, Title } from "./TodoList.elements";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 
@@ -44,7 +44,6 @@ const TodoList = (props) => {
         },
       })
       .then(function (response) {
-        console.log(response);
         const todo = response.data.todo;
         const newTodos = [todo, ...todos];
         setTodos(newTodos);
@@ -112,7 +111,7 @@ const TodoList = (props) => {
 
   return (
     <AppWrapper>
-      <h1>What's the Plan for Today?</h1>
+      <Title>What's the Plan for Today?</Title>
       <TodoForm onSubmit={addTodo} />
       <Todo
         todos={todos}

@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { SiReactos } from "react-icons/si";
+import { colors } from "../../utils/colors";
 
 export const FooterContainer = styled.div`
-  background-color: #101522;
+  background-color: ${colors.background};
   padding: 0rem 0 1rem 0;
   display: flex;
   flex-direction: column;
@@ -36,7 +37,7 @@ export const FooterLinkItems = styled.div`
   text-align: center;
   width: 160px;
   box-sizing: border-box;
-  color: #fff;
+  color: ${colors.text};
   @media screen and (max-width: 420px) {
     margin: 0;
     padding: 10px;
@@ -49,7 +50,7 @@ export const FooterLinkTitle = styled.h2`
 `;
 
 export const FooterLink = styled.a`
-  color: #fff;
+  color: ${colors.secondary};
   text-decoration: none;
   margin-bottom: 0.5rem;
   &:hover {

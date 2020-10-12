@@ -3,25 +3,23 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 
 import {
-  FormSignUp,
-  FormContainer,
-  FormContentLeft,
-  FormContentRight,
-  FormInputs,
-  FormInput,
-  FormLabel,
-  FormInputBtn,
-  FormImg,
+  Title,
+  Container,
+  Form,
+  InputWrapper,
+  Input,
+  Label,
+  Button,
   ErrorMsg,
-  FormSpan,
+  Span,
   FormLink,
 } from "./Login.elements";
 
 const Login = (props) => {
   const history = useHistory();
   const [values, setValues] = useState({
-    email: "",
-    password: "",
+    email: "demo@gmail.com",
+    password: "password",
   });
   const [errors, setErrors] = useState("");
   const inputRef = useRef(null);
@@ -35,14 +33,15 @@ const Login = (props) => {
     axios
       .post("https://thawing-citadel-58036.herokuapp.com/auth/login", values)
       .then((response) => {
-        console.log(response);
         const { token } = response.data;
         props.setLoggedIn(true);
         localStorage.setItem("Authorization", token);
         history.push("/");
       })
       .catch((error) => {
-        if (error.response) setErrors(`${error.response.data}`);
+        if (error.response) {
+          setErrors("Invalid email or password");
+        }
       });
   };
 
@@ -55,37 +54,33 @@ const Login = (props) => {
   };
 
   return (
-    <FormContainer>
-      <FormContentLeft>
-        <FormImg src={require("../../img/img-4.svg")} />
-      </FormContentLeft>
-
-      <FormContentRight>
-        <FormSignUp onSubmit={handleSubmit}>
-          <h1>Login</h1>
-          <FormInputs>
-            <FormLabel>Email</FormLabel>
-            <FormInput
-              type="text"
-              name="email"
-              onChange={handleChange}
-              ref={inputRef}
-            />
-            <FormLabel>Password</FormLabel>
-            <FormInput
-              type="password"
-              name="password"
-              onChange={handleChange}
-            />
-          </FormInputs>
-          {errors !== "" ? <ErrorMsg>{errors}</ErrorMsg> : null}
-          <FormInputBtn>Log in</FormInputBtn>
-          <FormSpan>
-            Don't have an account ?<FormLink to="/signup"> Sign up</FormLink>
-          </FormSpan>
-        </FormSignUp>
-      </FormContentRight>
-    </FormContainer>
+    <Container>
+      <Form onSubmit={handleSubmit}>
+        <Title>Login</Title>
+        <InputWrapper>
+          <Label>Email</Label>
+          <Input
+            type="text"
+            name="email"
+            value={values.email}
+            onChange={handleChange}
+            ref={inputRef}
+          />
+          <Label>Password</Label>
+          <Input
+            type="password"
+            name="password"
+            value={values.password}
+            onChange={handleChange}
+          />
+        </InputWrapper>
+        {errors !== "" ? <ErrorMsg>{errors}</ErrorMsg> : null}
+        <Button>Log in</Button>
+        <Span>
+          Don't have an account ?<FormLink to="/signup"> Sign up</FormLink>
+        </Span>
+      </Form>
+    </Container>
   );
 };
 

@@ -1,64 +1,67 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { colors } from "../../utils/colors";
 
-export const FormContainer = styled.div`
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: start;
   max-width: 600px;
   min-height: 600px;
   text-align: center;
   margin: 50px auto;
-  border-radius: 10px;
-  padding-bottom: 32px;
 `;
 
-export const FormSignUp = styled.form`
+export const Form = styled.form`
   display: flex;
-  flex-basis: 100%;
-  width: 100%;
   flex-direction: column;
+  width: 100%;
+  max-width: 800px;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
 `;
 
-export const FormInputs = styled.div`
+export const InputWrapper = styled.div`
+  text-align: left;
   margin-bottom: 0.5rem;
   width: 80%;
 `;
 
-export const FormLabel = styled.label`
+export const Label = styled.label`
   display: inline-block;
-  font-size: 0.8rem;
+  font-size: 1rem;
   margin-bottom: 6px;
-  color: #fff;
+  color: ${colors.secondary};
 `;
 
-export const FormInput = styled.input`
+export const Input = styled.input`
   display: block;
   padding-left: 10px;
   outline: none;
   border-radius: 2px;
   height: 40px;
   width: 100%;
-  border: none;
+  border: 2px solid grey;
+  margin-bottom: 5px;
+
+  &:focus {
+    transition: all 0.1s ease-out;
+    border: 3px solid;
+    border-color: ${colors.primary};
+  }
 `;
 
-export const FormButton = styled.button`
+export const Button = styled.button`
+  cursor: pointer;
   width: 80%;
   height: 50px;
   margin-top: 10px;
   border-radius: 2px;
-  background: linear-gradient(
-    90deg,
-    rgb(39, 176, 255) 0%,
-    rgb(0, 232, 236) 100%
-  );
+  background: ${colors.primary};
   outline: none;
   border: none;
+  border-radius: 5px;
   color: #fff;
-  font-size: 1rem;
+  font-size: 1.1rem;
 `;
 
 export const ErrorMsg = styled.p`
@@ -66,12 +69,19 @@ export const ErrorMsg = styled.p`
   margin: 10px 0px;
 `;
 
-export const FormLogIn = styled.span`
+export const Span = styled.span`
+  font-size: 1rem;
   margin-top: 10px;
-  color: #fff;
+  color: ${colors.text};
 `;
 
 export const FormLink = styled(Link)`
   text-decoration: none;
-  color: rgb(39, 176, 255);
+  color: ${colors.primary};
+`;
+
+export const Title = styled.h1`
+  color: ${colors.text};
+  font-size: 30px;
+  margin-bottom: 10px;
 `;
